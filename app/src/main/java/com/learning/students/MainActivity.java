@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,17 +115,15 @@ public class MainActivity extends AppCompatActivity {
         studentsListView.setLayoutManager(new LinearLayoutManager(this));
 
         File studentsFile = new File(getFilesDir(), "students.txt");
-        try {
-            if (!studentsFile.exists()) {
-                students = Student.generate();
-                studentsFile.createNewFile();
-                Student.saveStudents(students, studentsFile);
-            } else {
-                students = Student.loadStudents(studentsFile);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new StudentsTask(
+                new StudentsTask.ResultCallback() {
+                    @Override
+                    public void onStudentsReady(List<Student> studentsFromFile) {
+                        MainActivity.this.students = studentsFromFile;
+                        studentsListView.getAdapter().notifyDataSetChanged();
+                    }
+                }
+        ).execute(studentsFile);
 
         studentsListView.setAdapter(new StudentsAdapter());
 
