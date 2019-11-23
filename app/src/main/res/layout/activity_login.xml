@@ -15,7 +15,8 @@
         android:hint="@string/login"
         app:layout_constraintBottom_toTopOf="@id/passwordEdit"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
     <EditText
         android:id="@+id/passwordEdit"
@@ -27,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         android:id="@+id/registerButton"
@@ -35,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="@string/register"
         app:layout_constraintTop_toBottomOf="@id/passwordEdit"
-        app:layout_constraintLeft_toLeftOf="@id/passwordEdit" />
+        app:layout_constraintLeft_toLeftOf="@id/passwordEdit"/>
 
     <Button
         android:id="@+id/loginButton"
@@ -43,5 +44,5 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         app:layout_constraintTop_toBottomOf="@id/passwordEdit"
-        app:layout_constraintRight_toRightOf="@id/passwordEdit" />
+        app:layout_constraintRight_toRightOf="@id/passwordEdit"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
