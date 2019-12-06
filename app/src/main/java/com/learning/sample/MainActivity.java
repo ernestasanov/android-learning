@@ -2,6 +2,7 @@ package com.learning.sample;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -11,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button startActivity1Button;
     private Button startActivity2Button;
+    private Button startActivity3Button;
+    private Button startActivity4Button;
 
     private static final int ACTIVITY2_REQUEST_CODE = 1;
     public static final String ACTIVITY2_RESULT_EXTRA = "activity2_result";
@@ -20,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        startActivity1Button = findViewById(R.id.startActivity1);
-        startActivity2Button = findViewById(R.id.startActivity2);
     }
 
     @Override
@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 int result = data.getIntExtra(ACTIVITY2_RESULT_EXTRA, 0);
                 if (result == ACTIVITY2_RESULT) {
-
+                    startActivity3Button.setVisibility(View.VISIBLE);
+                    startActivity4Button.setVisibility(View.VISIBLE);
                 }
             }
         }
